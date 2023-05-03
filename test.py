@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 username = "namastebrother"
 
 # URL of the user's favourite movies page
-url = f'https://letterboxd.com/{username}'
+url = f'https://letterboxd.com/{username}/watchlist'
 
 # Send a GET request to the URL
 response = requests.get(url)
@@ -28,15 +28,18 @@ soup = BeautifulSoup(response.content, 'lxml')
 # print(favourites)
 
 
-def find(movie_type):
-    results = soup.find(id=movie_type)
-    films = []
-    for movie in results.find_all('li'):
-        title = movie.find('img')['alt']
-        films.append(title)
-    print(films)
 
-find("favourites")
+results = soup.find(id="content")
+films = []
+#print(results.prettify())
+for movie in results.find_all("li", class_="poster-container"):
+    title = movie.find('img')['alt']
+    films.append(title)
+print(films)
+
+# for movie in results.find_all("div", class_="cols-2 js-watchlist-content"):
 
 
-# print(results.prettify())
+
+
+

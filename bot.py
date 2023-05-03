@@ -23,13 +23,9 @@ async def letterboxd(ctx, user:str, request_type:str):
     
     # User's Letterboxd username
     username = user
-
-    # URL of the user's favourite movies page
     url = f'https://letterboxd.com/{username}'
-
     # Send a GET request to the URL
     response = requests.get(url)
-
     # Parse the HTML content using BeautifulSoup
     soup = BeautifulSoup(response.content, 'lxml')
 
@@ -38,12 +34,23 @@ async def letterboxd(ctx, user:str, request_type:str):
     for movie in results.find_all('li'):
         title = movie.find('img')['alt']
         films.append(title)
-    
-
     reply = username + "'s films are: " + ",   ".join(films)
     
     # Print the list of favourite movies
     await ctx.send(reply)
+        
+    
+# if request_type=="watchlist":
+#     url = f'https://letterboxd.com/{username}/watchlist'
+#     response = requests.get(url)
+#     soup = BeautifulSoup(response.content, 'lxml')
+#     results = soup.find(id=content-nav)
+#     for movie in results.find_all('ul'):
+#         title = movie.find('img')['alt']
+#         films.append(title)
+#     reply = username + "'s films are: " + ",   ".join(films)
+# else:
+    
 
 # @bot.command(name='roll_dice', help='Simulates rolling dice.')
 # async def roll(ctx, number_of_dice: int, number_of_sides: int):
