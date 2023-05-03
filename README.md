@@ -8,4 +8,4 @@ A bot for accessing data on letterboxd from within a discord server
 * Provide recently watched films from letterboxd
 * Update the server when a user watches a film if possible??
 
-![alt text](https://github.com/georgewelly/letterboxdbot/blob/master/functionality.png?raw=true)
+![first working features](img/functionality.png)
