@@ -8,6 +8,10 @@ Uses BeautifulSoup and a html scraper as the Letterboxd API was very unhelpful.
 
 * Provide a list of favourite films of users of letterboxd
 * Provide recently watched films from letterboxd
+![first working features](img/functionality.png)
+* Provide a watchlist from different users
+![watchlist](img/watchlist.png)
+
 * Update the server when a user watches a film if possible??
 
-![first working features](img/functionality.png)
+
