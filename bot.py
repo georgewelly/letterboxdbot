@@ -1,5 +1,3 @@
-# bot.py
-
 import os, discord, random, requests
 
 from bs4 import BeautifulSoup
