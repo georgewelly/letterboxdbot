@@ -1,6 +1,8 @@
 # Discord-Letterboxd integration bot
 
-A bot for accessing data on letterboxd from within a discord server
+A bot for accessing data on letterboxd from within a discord server.
+
+Uses BeautifulSoup and a html scraper as the Letterboxd API was very unhelpful.
 
 ## Aims
 
