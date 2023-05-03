@@ -14,6 +14,18 @@ response = requests.get(url)
 # Parse the HTML content using BeautifulSoup
 soup = BeautifulSoup(response.content, 'lxml')
 
+results = soup.find(id="content")
+films = []
+#print(results.prettify())
+for movie in results.find_all("li", class_="poster-container"):
+    title = movie.find('img')['alt']
+    films.append(title)
+print(films)
+
+
+
+
+
 # # Find the list of favourite movies
 # favourites_list = soup.find('ul', {'class': 'poster-list'})
 
@@ -27,17 +39,39 @@ soup = BeautifulSoup(response.content, 'lxml')
 # # Print the list of favourite movies
 # print(favourites)
 
-
-
-results = soup.find(id="content")
-films = []
-#print(results.prettify())
-for movie in results.find_all("li", class_="poster-container"):
-    title = movie.find('img')['alt']
-    films.append(title)
-print(films)
-
 # for movie in results.find_all("div", class_="cols-2 js-watchlist-content"):
+
+
+# if request_type=="watchlist":
+#     url = f'https://letterboxd.com/{username}/watchlist'
+#     response = requests.get(url)
+#     soup = BeautifulSoup(response.content, 'lxml')
+#     results = soup.find(id=content-nav)
+#     for movie in results.find_all('ul'):
+#         title = movie.find('img')['alt']
+#         films.append(title)
+#     reply = username + "'s films are: " + ",   ".join(films)
+# else:
+    
+
+# @bot.command(name='roll_dice', help='Simulates rolling dice.')
+# async def roll(ctx, number_of_dice: int, number_of_sides: int):
+#     dice = [
+#         str(random.choice(range(1, number_of_sides + 1)))
+#         for _ in range(number_of_dice)
+#     ]
+#     await ctx.send(', '.join(dice))
+
+# @bot.command(name='cs', help='Responds with a random quote')
+# async def cs_quote(ctx):
+#     quotes = [
+        
+#             'asdf',
+#             'asdf',
+#             ''
+#     ]
+#     response = random.choice(quotes)
+#     await ctx.send(response)
 
 
 

@@ -20,12 +20,12 @@ async def on_ready():
 
 @bot.command(name='lb', help='letterboxd')
 async def letterboxd(ctx, user:str, request_type:str):
-    
     # User's Letterboxd username
-    username = user
-    url = f'https://letterboxd.com/{username}'
+    url = f'https://letterboxd.com/{user}'
+
     # Send a GET request to the URL
     response = requests.get(url)
+
     # Parse the HTML content using BeautifulSoup
     soup = BeautifulSoup(response.content, 'lxml')
 
@@ -34,9 +34,27 @@ async def letterboxd(ctx, user:str, request_type:str):
     for movie in results.find_all('li'):
         title = movie.find('img')['alt']
         films.append(title)
-    reply = username + "'s films are: " + ",   ".join(films)
+    reply = user + "'s films are: " + ",  ".join(films)
     
     # Print the list of favourite movies
+    await ctx.send(reply)
+
+@bot.command(name='watchlist', help='letterboxd watchlist')
+async def watchlist(ctx, user:str):
+    url = f'https://letterboxd.com/{user}/watchlist'
+
+    # Send a GET request to the URL
+    response = requests.get(url)
+
+    # Parse the HTML content using BeautifulSoup
+    soup = BeautifulSoup(response.content, 'lxml')
+
+    results = soup.find(id="content")
+    films = []
+    for movie in results.find_all("li", class_="poster-container"):
+        title = movie.find('img')['alt']
+        films.append(title)
+    reply = "The movies on " + user + "'s watchlist are: "+ ",  ".join(films)
     await ctx.send(reply)
         
     
