@@ -56,39 +56,8 @@ async def watchlist(ctx, user:str):
         films.append(title)
     reply = "The movies on " + user + "'s watchlist are: "+ ",  ".join(films)
     await ctx.send(reply)
-        
-    
-# if request_type=="watchlist":
-#     url = f'https://letterboxd.com/{username}/watchlist'
-#     response = requests.get(url)
-#     soup = BeautifulSoup(response.content, 'lxml')
-#     results = soup.find(id=content-nav)
-#     for movie in results.find_all('ul'):
-#         title = movie.find('img')['alt']
-#         films.append(title)
-#     reply = username + "'s films are: " + ",   ".join(films)
-# else:
-    
-
-# @bot.command(name='roll_dice', help='Simulates rolling dice.')
-# async def roll(ctx, number_of_dice: int, number_of_sides: int):
-#     dice = [
-#         str(random.choice(range(1, number_of_sides + 1)))
-#         for _ in range(number_of_dice)
-#     ]
-#     await ctx.send(', '.join(dice))
-
-# @bot.command(name='cs', help='Responds with a random quote')
-# async def cs_quote(ctx):
-#     quotes = [
-        
-#             'asdf',
-#             'asdf',
-#             ''
-#     ]
-#     response = random.choice(quotes)
-#     await ctx.send(response)
-
+       
+ 
 bot.run(TOKEN)
 
 
