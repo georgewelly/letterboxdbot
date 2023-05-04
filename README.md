@@ -11,7 +11,6 @@ Uses BeautifulSoup and a html scraper as the Letterboxd API was very unhelpful.
 ![first working features](img/functionality.png)
 * Provide a watchlist from different users
 ![watchlist](img/watchlist.png)
-
 * Update the server when a user watches a film if possible??
 
 
