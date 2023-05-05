@@ -18,7 +18,7 @@ async def on_ready():
 
 
 
-@bot.command(name='lb', help='letterboxd')
+@bot.command(name='lb', help='Query letterboxd for favourites or recent-activity')
 async def letterboxd(ctx, user:str, request_type:str):
     # User's Letterboxd username
     url = f'https://letterboxd.com/{user}'
@@ -39,7 +39,7 @@ async def letterboxd(ctx, user:str, request_type:str):
     # Print the list of favourite movies
     await ctx.send(reply)
 
-@bot.command(name='watchlist', help='letterboxd watchlist')
+@bot.command(name='watchlist', help='Queries for watchlist, argument is username')
 async def watchlist(ctx, user:str):
     url = f'https://letterboxd.com/{user}/watchlist'
 
